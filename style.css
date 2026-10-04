@@ -276,12 +276,19 @@ select:focus {
 .task-item {
     background: white;
     border: 1px solid var(--border);
+    border-left: 5px solid var(--primary);
     border-radius: 14px;
     padding: 18px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 15px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+.task-item.completed {
+    border-left-color: var(--success);
+    opacity: 0.75;
 }
 
 .task-main {
@@ -416,5 +423,33 @@ footer {
 
     .task-item {
         align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 28px 0;
+    }
+
+    .container {
+        width: min(1100px, 94%);
+    }
+
+    .task-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .task-item > div:last-child {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .stats {
+        gap: 10px;
     }
 }

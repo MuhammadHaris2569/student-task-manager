@@ -44,4 +44,3 @@ This project was created as a simple student task management application to prac
 
 **M Haris Munir**
 **ABAID UR REHMAN**
-Temporary revert test

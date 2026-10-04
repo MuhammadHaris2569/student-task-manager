@@ -55,8 +55,11 @@ function renderTasks() {
 
     const filteredTasks = tasks.filter(task => {
 
+        const statusText = task.completed ? "completed" : "pending";
         const matchesSearch =
-            task.title.toLowerCase().includes(searchText);
+            task.title.toLowerCase().includes(searchText) ||
+            task.priority.toLowerCase().includes(searchText) ||
+            statusText.includes(searchText);
 
         const matchesFilter =
             filter === "all" ||
@@ -93,6 +96,7 @@ function renderTasks() {
 
                     <div class="task-date">
                         Created: ${task.createdAt}
+                        ${task.completed && task.completedAt ? " · Completed: " + task.completedAt : ""}
                     </div>
                 </div>
 
@@ -127,9 +131,11 @@ function toggleTask(id) {
     tasks = tasks.map(task => {
 
         if (task.id === id) {
+            const completed = !task.completed;
             return {
                 ...task,
-                completed: !task.completed
+                completed: completed,
+                completedAt: completed ? new Date().toLocaleDateString() : ""
             };
         }
 

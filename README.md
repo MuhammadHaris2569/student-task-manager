@@ -1,4 +1,4 @@
-# Student Task Management Application
+# Student Task Management System
 
 A simple **Student Task Manager** built using HTML, CSS, and JavaScript. It helps students add, manage, and track their daily academic tasks.
 

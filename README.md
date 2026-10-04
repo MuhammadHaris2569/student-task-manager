@@ -42,5 +42,5 @@ This project was created as a simple student task management application to prac
 
 ## Author
 
-**M Haris Munir**
+**M.HARIS MUNIR**
 **ABAID UR REHMAN**

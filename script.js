@@ -55,8 +55,11 @@ function renderTasks() {
 
     const filteredTasks = tasks.filter(task => {
 
+        const statusText = task.completed ? "completed" : "pending";
         const matchesSearch =
-            task.title.toLowerCase().includes(searchText);
+            task.title.toLowerCase().includes(searchText) ||
+            task.priority.toLowerCase().includes(searchText) ||
+            statusText.includes(searchText);
 
         const matchesFilter =
             filter === "all" ||

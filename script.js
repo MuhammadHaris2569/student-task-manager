@@ -93,6 +93,7 @@ function renderTasks() {
 
                     <div class="task-date">
                         Created: ${task.createdAt}
+                        ${task.completed && task.completedAt ? " · Completed: " + task.completedAt : ""}
                     </div>
                 </div>
 
@@ -127,9 +128,11 @@ function toggleTask(id) {
     tasks = tasks.map(task => {
 
         if (task.id === id) {
+            const completed = !task.completed;
             return {
                 ...task,
-                completed: !task.completed
+                completed: completed,
+                completedAt: completed ? new Date().toLocaleDateString() : ""
             };
         }
 
